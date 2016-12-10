@@ -1,7 +1,12 @@
 class DocsController < ApplicationController
+  # this will run before any of the action of the controller
+  # we only need to find the doc for :show, :edit, :update, :destroy
+  before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   # index is for our index view
   def index
+    # we are saving all the docs in descending order on when it was created at and saving it to the @docs variable
+    @docs = Doc.all.order('created_at DESC')
   end
 
   # show is to show our view
@@ -45,11 +50,13 @@ class DocsController < ApplicationController
   # we have private methods to keep DRY
   private
     def find_doc
-      # this is how to define the :doc model params and permit the 2 attr
-      params.require(:doc).permit(:title, :content)
+      # this is finding a doc by its id we are going to use it often
+      @doc = Doc.find(params[:id]);
     end
 
     def doc_params
+      # this is how to define the :doc model params and permit the 2 attr
+      params.require(:doc).permit(:title, :content)
     end
 
 end
