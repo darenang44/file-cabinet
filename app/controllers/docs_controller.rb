@@ -6,7 +6,10 @@ class DocsController < ApplicationController
   # index is for our index view
   def index
     # we are saving all the docs in descending order on when it was created at and saving it to the @docs variable
-    @docs = Doc.all.order('created_at DESC')
+    # @docs = Doc.all.order('created_at DESC')
+
+    # all the docs that have the same user as the current user
+    @docs = Doc.where(user_id: current_user).order('created_at DESC')
   end
 
   # show is to show our view
