@@ -16,13 +16,19 @@ class DocsController < ApplicationController
   # new is for our new view but to create something new we need a create method
   def new
     # we are creating a variable @doc and setting it to a new instance of Doc
-    @doc = Doc.new
+    # @doc = Doc.new
+
+    # this is how get the new doc with users
+    @doc = current_user.docs.build
   end
 
   # create method doesnt have a view
   def create
     # we are creating a variable @doc and setting it to a new instance of Doc and saving it params (title & content)
-    @doc = Doc.new(doc_params)
+    # @doc = Doc.new(doc_params)
+
+    # this is how get the new doc with users
+    @doc = current_user.docs.build(doc_params)
 
     # if we save the doc we want to be redirected to that doc itself
     # else we want to render the new file to have a chance to save it again
