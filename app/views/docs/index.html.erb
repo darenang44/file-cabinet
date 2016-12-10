@@ -1,3 +1,7 @@
+<% title "All Docs" %>
+<% description "All Docs description" %>
+<% keywords "All Docs keywords" %>
+
 <% @docs.each { |doc| %>
 
 <h2><%= link_to doc.title, doc %></h2>
@@ -5,3 +9,5 @@
 <p><%= truncate(doc.content, length:50) %></p>
 
 <% } %>
+
+<%= link_to "Create Doc", new_doc_path%>

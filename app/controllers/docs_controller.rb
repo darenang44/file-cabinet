@@ -41,10 +41,21 @@ class DocsController < ApplicationController
   # update doesnt have a view itself
   # makes changes to the db using the edit view
   def update
+    # if the doc is updated its going to save those changes
+    if @doc.update(doc_params)
+      # then redirect us to the doc that have just been edited
+      redirect_to @doc
+    else
+      # we dont want a redirect bc a redirect is a new http request and we will lose all the content
+      # render allows us to save the changes once more
+      render 'edit'
+    end
   end
 
   # deleting the Docs that we make
   def destroy
+    @doc.destroy
+    redirect_to docs_path
   end
 
   # we have private methods to keep DRY
