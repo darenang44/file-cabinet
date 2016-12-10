@@ -1,0 +1,7 @@
+<!-- going to be a partial - we create partials bc we want the content inside them to render some where else -->
+
+<%= simple_form_for @doc do |f| %>
+  <%= f.input :title %><br>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
