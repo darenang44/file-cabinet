@@ -2,6 +2,27 @@
 <% description 'Home page description.' %>
 <% keywords 'Home page keywords' %>
 
-
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div id="banner">
+  <div class="banner_content">
+    <h1>File Cabinet</h1>
+    <p>Your life's work. Always Organized</p>
+    <button><%= link_to "Enter", new_user_registration_path %></button>
+  </div>
+</div>
+<div id="callouts">
+  <div class="callout_inner">
+    <div class="wrapper">
+      <div class="callout">
+        <h2>Organize</h2>
+        <p>Fam celiac umami wolf. Ethical vaporware swag la croix helvetica live-edge. 3 wolf moon twee sartorial seitan. Cornhole bicycle rights kinfolk la croix, DIY sriracha authentic normcore succulents organic microdosing retro wayfarers shoreditch gluten-free. Pork belly cred meditation, tilde hashtag roof party cronut. Craft beer waistcoat fanny pack, normcore succulents organic butcher single-origin coffee lumbersexual. Mixtape XOXO letterpress, celiac edison bulb photo booth vice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="bottom_cta">
+  <div class="wrapper">
+    <h2>Go Ahead!</h2>
+    <br>
+    <button><%= link_to "Join Now", new_user_registration_path %></button>
+  </div>
+</div>
