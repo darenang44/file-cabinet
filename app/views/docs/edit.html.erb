@@ -2,8 +2,8 @@
 <% description 'Edit New Doc description.' %>
 <% keywords 'Edit New Doc keywords' %>
 
-<h1>Edit Doc</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Cancel', doc_path %>
+<div class="wrapper_with_padding">
+  <h1>Edit Doc</h1>
+  <%= render 'form' %>
+  <button><%= link_to 'Cancel', doc_path %></button>
+</div>
