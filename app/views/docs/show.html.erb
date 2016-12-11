@@ -3,13 +3,13 @@
 <% keywords @doc.title + "keywords" %>
 
 
-
-<h1> <%= @doc.title %></h1>
-<p> <%= @doc.content %></p>
-
-<!-- this is our link to all the doc rake routes in the command line is where we can see all these routes-->
-<%= link_to "All Docs", docs_path %>
-<!-- this is our link to the page where we can edit the specific @doc -->
-<%= link_to "Edit Doc", edit_doc_path(@doc) %>
-<!-- this is our link to delete a @doc, and we have a method that will run the DELETE http verb, then will need confirmation that we want to delete @doc -->
-<%= link_to "Delete", doc_path(@doc), :method => :delete, :data => {confirm: 'Are you sure?'} %>
+<div class="wrapper_with_padding">
+  <div id="doc_show">
+    <h1 class="title"> <%= @doc.title %></h1>
+    <p> <%= simple_format(@doc.content) %></p>
+    <!-- this is our link to the page where we can edit the specific @doc -->
+    <button class="button"><%= link_to "Edit Doc", edit_doc_path(@doc) %></button>
+    <!-- this is our link to delete a @doc, and we have a method that will run the DELETE http verb, then will need confirmation that we want to delete @doc -->
+    <button class="button"><%= link_to "Delete", doc_path(@doc), :method => :delete, :data => {confirm: 'Are you sure?'} %></button>
+  </div>
+</div>
