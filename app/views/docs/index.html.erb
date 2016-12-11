@@ -2,12 +2,20 @@
 <% description "All Docs description" %>
 <% keywords "All Docs keywords" %>
 
-<% @docs.each { |doc| %>
-
-<h2><%= link_to doc.title, doc %></h2>
-<p><%= time_ago_in_words(doc.created_at) %></p>
-<p><%= truncate(doc.content, length:50) %></p>
-
-<% } %>
-
-<%= link_to "Create Doc", new_doc_path%>
+<div class="wrapper_with_padding">
+  <div id="docs" class="clearfix">
+    <% unless @docs.blank? %>
+      <% @docs.each { |doc| %>
+        <div class="doc">
+          <p class="title"><%= link_to doc.title, doc %></h2>
+          <p class="date"><%= link_to time_ago_in_words(doc.created_at), doc %></p>
+          <p class="content"><%= link_to truncate(doc.content, length:50), doc %></p>
+        </div>
+      <% } %>
+    <% else %>
+      <h2> Create Doc!</h2>
+      <p>Start creating documents and organizing your life</p>
+      <button><%= link_to "Create Doc", new_doc_path %></button>
+    <% end %>
+  </div>
+</div>
